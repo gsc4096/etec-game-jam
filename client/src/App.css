@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('./styles/login.css');
+@import url('./styles/Landing/aprender.css');
+@import url('./styles/Landing/cadastro.css');
+@import url('./styles/Landing/footer.css');
+@import url('./styles/Landing/Header.css');
+@import url('./styles/Landing/Home.css');
+@import url('./styles/Landing/info.css');
+@import url('./styles/Landing/steps.css');
+@import url('./styles/Home/index.css');
+
+
+:root {
+  --color-primary-1: #B1008A ;
+  --color-primary-2: #8900C9;
+}
+
+#ba {
+  background-color: #1D1D1D;
+  overflow-x: hidden;
+  width: 100%;
+  
+}

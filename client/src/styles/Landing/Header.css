@@ -1,0 +1,122 @@
+header {
+    gap: 15px;
+    width: 100%;
+    padding: 28px 8%;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    z-index: 3;
+    margin-left: 25%;
+}
+
+#nav-bar {
+    width: 690.257px;
+    height: 98.296px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(70deg, #8900C9,#B1008A);
+    border-radius: 19.65px;
+}
+
+#nav-logo {
+    margin-left: 30px;
+}
+
+
+#nav_list {
+    display: flex;
+    list-style: none;
+    gap: 50px;
+    margin-right: 60px;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #E2E2E2;
+    font-family: Inter;
+    font-size: 20.274px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.bnt{
+    width: 81.549px;
+    height: 98.296px;
+    flex-shrink: 0;
+    border-radius: 19.652px;
+    background: linear-gradient(180deg, #B1008A 0%, #8900C9 100%);
+    box-shadow: 0px 5.053px 33.745px 0px rgba(0, 0, 0, 0.07);
+    transition: all 1.5s;
+}
+
+.bnt img{
+    margin-top:25px;
+    margin-left: 13px;
+}
+
+.bnt img:hover{
+    width: 50px;
+    transition: all 1.5s;
+}
+.nav-item.active a {
+    text-decoration: none;
+    color: #E2E2E2;
+    font-family: Inter;
+    font-size: 20.274px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    
+}
+
+#mobile_btn {
+    display: none;
+}
+
+#mobile_menu {
+    display: none;
+}
+
+@media screen and (max-width: 1170px) {
+    #nav_list,
+    #navbar .btn-default {
+        display: none;
+    }
+
+    #mobile_btn {
+        display: block;
+        border: none;
+        color: var(--color-neutral-1);
+        background-color: transparent;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 1s;
+    }
+
+    #mobile_menu.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #mobile_nav_list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 12px 0px;
+
+    }
+
+    #mobile_nav_list .nav-item {
+        list-style: none;
+        text-align: center;
+        
+    } 
+    #mobile_nav_list .nav-item a {
+       color: whiteasc;
+        
+    } 
+}
