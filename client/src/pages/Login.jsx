@@ -1,19 +1,18 @@
 // src/components/Login.js
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-import image from '../assets/img-login.svg'
-import back from '../assets/voltar.svg'
+import image from '../assets/img-login.svg';
+import back from '../assets/voltar.svg';
 import logo from '../assets/Logo.svg';
-
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const { isAuthenticated, login } = useAuth();
+  const { login } = useAuth();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -25,92 +24,95 @@ const Login = () => {
     }
   };
 
-  const toggleShowPassword = () => {
+  const toggleShowPassword = (e) => {
+    e.preventDefault();
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
   return (
     <section className="parti">
-    <div className="blur-4"></div>
-    <img src={logo} alt="" className="logo" />
-    <div className="left">
-        <br /><br /><br /><br /><br /><br /><br />
-        <h1>Olá, Seja bem vindo de volta </h1>
-        <img src={image} alt="img" className="men" />
+      <div className="blur-4" />
+      <img src={logo} alt="Logo" className="logo" />
+      <div className="left">
+        <h1>Olá, Seja bem vindo de volta</h1>
+        <img src={image} alt="Login Illustration" className="men" />
         <div className="btn">
-            <a href="/"><img src={back} alt="" className="back" /></a>
+          <a href="/">
+            <img src={back} alt="Back" className="back" />
+          </a>
         </div>
-    </div>
+      </div>
 
-    <div className="right">
-
+      <div className="right">
         <div className="title-login">
-            <h1>Entre na sua conta</h1>
-            <p>Insira suas informações para prosseguir</p>
+          <h1>Entre na sua conta</h1>
+          <p>Insira suas informações para prosseguir</p>
         </div>
-        <br /><br /><br />
-        <div class="login-box">
-
-            <form>
-                <div class="user-box">
-                <div className="wave-group">
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-              className="input"
-            />
-            <span className="bar"></span>
-            <label className="label">
-              <span className="label-char" style={{ "--index": 0 }}>U</span>
-              <span className="label-char" style={{ "--index": 1 }}>s</span>
-              <span className="label-char" style={{ "--index": 2 }}>u</span>
-              <span className="label-char" style={{ "--index": 3 }}>á</span>
-              <span className="label-char" style={{ "--index": 4 }}>r</span>
-              <span className="label-char" style={{ "--index": 5 }}>i</span>
-              <span className="label-char" style={{ "--index": 6 }}>o</span>
-            </label>
-          </div>
-                </div>  
-                <div className="user-box">
-                  <div className="wave-group">
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    className="input"
-                  />
-                  <span className="bar"></span>
-                  <label className="label">
-                    <span className="label-char" style={{ "--index": 0 }}>S</span>
-                    <span className="label-char" style={{ "--index": 1 }}>e</span>
-                    <span className="label-char" style={{ "--index": 2 }}>n</span>
-                    <span className="label-char" style={{ "--index": 3 }}>h</span>
-                    <span className="label-char" style={{ "--index": 4 }}>a</span>
-                  </label>
-                  <div className="eye-icon" onClick={toggleShowPassword}>
-                    {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
-                  </div>
-                </div>
-                </div>
-
-                <br />
-                <a href="." className="esqueci">Esqueci minha senha</a>
-                <button onClick={handleLogin} class="button type1" >
-                  <span class="btn-txt">Hello</span>
+        <div className="login-box">
+          <form onSubmit={handleLogin}>
+            <div className="user-box">
+              <div className="wave-group">
+                <input
+                  type="text"
+                  id="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                  className="input"
+                />
+                <span className="bar" />
+                <label htmlFor="username" className="label">
+                  <span className="label-char">U</span>
+                  <span className="label-char">s</span>
+                  <span className="label-char">u</span>
+                  <span className="label-char">á</span>
+                  <span className="label-char">r</span>
+                  <span className="label-char">i</span>
+                  <span className="label-char">o</span>
+                </label>
+              </div>
+            </div>
+            <div className="user-box">
+              <div className="wave-group">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="input"
+                />
+                <span className="bar" />
+                <label htmlFor="password" className="label">
+                  <span className="label-char">S</span>
+                  <span className="label-char">e</span>
+                  <span className="label-char">n</span>
+                  <span className="label-char">h</span>
+                  <span className="label-char">a</span>
+                </label>
+                <button
+                  type="button"
+                  className="eye-icon"
+                  onClick={toggleShowPassword}
+                  onKeyDown={(e) => e.key === 'Enter' && toggleShowPassword(e)}
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                >
+                  {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
                 </button>
+              </div>
+            </div>
 
-            </form>
-            <br /><br /><br />
-            <a href="/cadastro" className="btn-cadastro">Não tem uma conta?<span>Crie uma</span></a>
+            <a href="." className="esqueci">Esqueci minha senha</a>
+            <button type="submit" className="button type1">
+              <span className="btn-txt">Entrar</span>
+            </button>
+          </form>
+          <a href="/cadastro" className="btn-cadastro">
+            Não tem uma conta?<span>Crie uma</span>
+          </a>
         </div>
-
-
-
-    </div>
-</section>
+      </div>
+    </section>
   );
 };
 

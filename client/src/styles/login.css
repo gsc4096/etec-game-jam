@@ -1,89 +1,83 @@
 /* src/App.css */
-
 /*organizar e retirar códigos não utilizados*/
 
-
-
-
-
-
 .home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    font-family: 'Inter', sans-serif;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
 
-  .login {
-    margin-left: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 549px;
-    height: 809px;
-    flex-shrink: 0; 
-    font-family: 'Inter', sans-serif;
-    background-color: #2B2B2B;
-    border-radius: 44px;
-    margin-top: 20px;
-  }
-  
-  .login form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .login input {
-    padding: 0.5rem;
-    font-size: 1rem;
-  }
-  
-  .login button {  
-    color: #FFF;
-    font-family: Inter;
-    font-size: 22.053px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 24.904px; 
-    letter-spacing: -0.441px;
-    background-color: #2B2B2B;
-    color: #fff;
-    height: 3em;
-    border-radius: 10em;
-    font-size: 15px;
-    font-family: inherit;
-    border: none;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    box-shadow: 6px 6px 12px #242424,
-                -6px -6px 12px #2b2b2b;
-   }
-   
-   .login button::before {
-    color: #fff;
-    width: 0;
-    content: '';
-    height: 3em;
-    border-radius: 30em;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: linear-gradient(to right, #8900C9 0%, #B1008A 100%);
-    transition: .5s ease;
-    display: block;
-    z-index: -1;
-   }
-   
-   .login button:hover::before {
-    width: 17em;
-    color: #fff;
-   }  
-  
+.login {
+  margin-left: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 549px;
+  height: 809px;
+  flex-shrink: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #2B2B2B;
+  border-radius: 44px;
+  margin-top: 20px;
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login input {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.login button {
+  color: #FFF;
+  font-family: Inter;
+  font-size: 22.053px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24.904px;
+  letter-spacing: -0.441px;
+  background-color: #2B2B2B;
+  color: #fff;
+  height: 3em;
+  border-radius: 10em;
+  font-size: 15px;
+  font-family: inherit;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 6px 6px 12px #242424,
+    -6px -6px 12px #2b2b2b;
+}
+
+.login button::before {
+  color: #fff;
+  width: 0;
+  content: '';
+  height: 3em;
+  border-radius: 30em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #8900C9 0%, #B1008A 100%);
+  transition: .5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.login button:hover::before {
+  width: 17em;
+  color: #fff;
+}
+
 .wave-group {
   position: relative;
 }
@@ -118,8 +112,8 @@
   transition-delay: calc(var(--index) * .05s);
 }
 
-.wave-group .input:focus ~ label .label-char,
-.wave-group .input:valid ~ label .label-char {
+.wave-group .input:focus~label .label-char,
+.wave-group .input:valid~label .label-char {
   transform: translateY(-20px);
   font-size: 14px;
   color: #8900C9;
@@ -131,7 +125,8 @@
   width: 200px;
 }
 
-.wave-group .bar:before,.wave-group .bar:after {
+.wave-group .bar:before,
+.wave-group .bar:after {
   content: '';
   height: 2px;
   width: 0;
@@ -151,18 +146,18 @@
   right: 50%;
 }
 
-.wave-group .input:focus ~ .bar:before,
-.wave-group .input:focus ~ .bar:after {
+.wave-group .input:focus~.bar:before,
+.wave-group .input:focus~.bar:after {
   width: 50%;
 }
 
-.eye-icon{
+.eye-icon {
   margin-left: 120%;
   margin-top: -17%;
 }
 
 
-.Fundo{
+.Fundo {
   width: 1236px;
   height: 809px;
   flex-shrink: 0;
@@ -172,7 +167,7 @@
 }
 
 
-.parti{
+.parti {
   width: 100%;
   overflow-y: hidden;
   height: 140%;
@@ -180,7 +175,7 @@
   background-color: #2B2B2B;
 }
 
-.left{
+.left {
   border-radius: 47px;
   background: #2B2B2B;
   box-shadow: -4px 4px 25.4px 0px rgba(0, 0, 0, 0.25);
@@ -194,7 +189,7 @@
 }
 
 
-.left h1{
+.left h1 {
   width: 494px;
   height: 45px;
   flex-shrink: 0;
@@ -205,14 +200,15 @@
   font-size: 40.447px;
   font-style: normal;
   font-weight: 700;
-  line-height: 49.064px; /* 112.929% */
+  line-height: 49.064px;
+  /* 112.929% */
   letter-spacing: -0.869px;
   margin-left: 120px;
 }
 
 
 
-.men{
+.men {
   width: 707px;
   height: 530.556px;
   flex-shrink: 0;
@@ -220,7 +216,7 @@
   margin-top: 1%;
 }
 
-.btn{
+.btn {
   float: left;
   width: 86px;
   height: 86px;
@@ -233,11 +229,12 @@
   box-shadow: 0px 3.34px 14.695px 0px rgba(0, 0, 0, 0.25);
 }
 
-.back{
+.back {
   margin-top: 24px;
   margin-left: 14px;
 }
-.right{
+
+.right {
   width: 549px;
   height: 809px;
   flex-shrink: 0;
@@ -250,13 +247,14 @@
   margin-right: 17%;
 }
 
-.right h1{
+.right h1 {
   color: #FFF;
   font-family: Inter;
   font-size: 38.98px;
   font-style: normal;
   font-weight: 700;
-  line-height: 44.02px; /* 112.929% */
+  line-height: 44.02px;
+  /* 112.929% */
   letter-spacing: -0.78px;
 
   width: 342px;
@@ -266,7 +264,7 @@
   margin-left: 50px;
 }
 
-.right p{
+.right p {
   width: 359px;
   height: 24.04px;
   flex-shrink: 0;
@@ -278,11 +276,12 @@
   font-size: 16.169px;
   font-style: normal;
   font-weight: 300;
-  line-height: 22.776px; /* 112.929% */
+  line-height: 22.776px;
+  /* 112.929% */
   letter-spacing: -0.403px;
-  }
+}
 
-.logo{
+.logo {
   width: 102.41px;
   height: 90.852px;
   flex-shrink: 0;
@@ -332,9 +331,9 @@
   transition: .5s;
 }
 
-.login-box .user-box input:focus ~ label,
-.login-box .user-box input:valid ~ label {
-  
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
+
   top: -20px;
   left: 0;
   color: #303030;
@@ -361,9 +360,9 @@
   color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 5px #ae00ff,
-              0 0 25px #ae00ff,
-              0 0 50px #ae00ff,
-              0 0 100px #ae00ff;
+    0 0 25px #ae00ff,
+    0 0 50px #ae00ff,
+    0 0 100px #ae00ff;
 }
 
 .login-box .btn-5 span {
@@ -376,7 +375,8 @@
     left: -100%;
   }
 
-  50%,100% {
+  50%,
+  100% {
     left: 100%;
   }
 }
@@ -390,35 +390,38 @@
   animation: btn-anim1 2s linear infinite;
 }
 
-.esqueci{
+.esqueci {
   color: #C1C1C1;
   font-family: Inter;
   font-size: 15.198px;
   font-style: normal;
   font-weight: 300;
-  line-height: 17.163px; /* 112.929% */
+  line-height: 17.163px;
+  /* 112.929% */
   letter-spacing: -0.304px;
   text-decoration-line: underline;
   margin-top: 30%;
 }
 
-.btn-cadastro{
+.btn-cadastro {
   margin-top: 1000px;
   margin-left: 96px;
-  color: #363636 ;
+  color: #363636;
   font-family: Inter;
   font-size: 15.198px;
   font-style: normal;
   font-weight: 300;
-  line-height: 17.163px; /* 112.929% */
+  line-height: 17.163px;
+  /* 112.929% */
   letter-spacing: -0.304px;
-  text-decoration-line: underline, color'#9b9b9b'; 
+  text-decoration-line: underline, color'#9b9b9b';
 }
-.btn-cadastro span{
+
+.btn-cadastro span {
   color: #000000;
 }
 
-.blur-4{
+.blur-4 {
   float: right;
   width: 489px;
   height: 489px;
@@ -430,6 +433,7 @@
   background: linear-gradient(171deg, #8900C9 45.63%, #B1008A 93.04%);
   filter: blur(157.48793029785156px);
 }
+
 .button {
   height: 50px;
   width: 300px;
