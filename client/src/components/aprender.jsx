@@ -1,4 +1,3 @@
-import React from "react";
 import jogo from '../assets/landing/controle.svg'
 import monitor from '../assets/landing/monitor.svg'
 import prot from '../assets/landing/prototipo.svg'

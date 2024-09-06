@@ -1,4 +1,4 @@
-import React from "react";
+
 import pc from '../assets/landing/pc.svg';
 
 const Info = () => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const ForgotPassword = () => {
@@ -19,13 +19,14 @@ const ForgotPassword = () => {
         <div className="wave-group">
           <input
             type="email"
+            id="email" // Adicionado ID
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
             className="input"
           />
           <span className="bar"></span>
-          <label className="label">
+          <label htmlFor="email" className="label"> {/* Associado com htmlFor */}
             <span className="label-char" style={{ "--index": 0 }}>E</span>
             <span className="label-char" style={{ "--index": 1 }}>m</span>
             <span className="label-char" style={{ "--index": 2 }}>a</span>

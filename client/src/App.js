@@ -1,12 +1,12 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './pages/Login';
-import ProtectedRoute from './pages/ProtectedRoute';
-import { AuthProvider } from './context/AuthContext'; //auth
-import ForgotPassword from './components/ForgotPassword';
-import Landing from './pages/Landing'
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Login from './pages/Login.jsx';
+import ProtectedRoute from './pages/ProtectedRoute.jsx';
+import { AuthProvider } from './context/AuthContext.js';
+import ForgotPassword from './components/ForgotPassword.jsx';
+import Landing from './pages/Landing.jsx';
+import Home from './components/Home.jsx';
 import './App.css';
-import Home from './pages/home';
+
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <Router>
         <div className="App">
           <Routes>
-            <Route path="/" element={<Landing />}/>
+            <Route path="/" element={<Landing />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route
@@ -32,5 +32,4 @@ function App() {
   );
 }
 
-export default App;
-
+export default App; 

@@ -1,4 +1,3 @@
-import React from "react";
 import steps from '../assets/landing/steps.svg';
 import hero from '../assets/landing/hero.png';
 const Steps = () => {

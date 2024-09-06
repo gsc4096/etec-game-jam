@@ -1,4 +1,4 @@
-import React from "react";
+
 import Hero from '../assets/landing/heros.svg';
 
 
@@ -17,9 +17,9 @@ const Home = () => {
                 </p>
 
                 <div className="btn-home">
-                    <a href="#" className="sub-btn">Inscreva-se</a>
+                    <a href="." className="sub-btn">Inscreva-se</a>
 
-                    <a href="#" className="ins-btn">Já me inscrevi</a>
+                    <a href="." className="ins-btn">Já me inscrevi</a>
                 </div>
             </div>
             <div className="banner">

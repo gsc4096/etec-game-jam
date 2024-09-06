@@ -1,11 +1,11 @@
-import React from 'react';
+
 import '../App.css';
-import Header from '../components/Header';
-import Home from '../components/Home';
-import Info from '../components/oq';
-import Aprender from '../components/aprender';
-import Step from '../components/steps';
-import Footer from '../components/footer';
+import Header from '../components/Header.jsx';
+import Home from '../components/Home.jsx';
+import Info from '../components/oq.jsx';
+import Aprender from '../components/aprender.jsx';
+import Step from '../components/steps.jsx';
+import Footer from '../components/footer.jsx';
 
 function HomePage() {
   return (
