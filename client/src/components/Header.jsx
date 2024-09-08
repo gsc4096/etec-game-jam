@@ -1,8 +1,11 @@
 import logo from '../assets/landing/Logo.svg';
 import login from '../assets/landing/login-icon.svg';
+import { FaUser, FaHome, FaList } from 'react-icons/fa';
+
 
 const Header = () => {
     return (
+        <section id='header'>
         <header>
             <nav id="nav-bar">
                 <i id="nav-logo"><img src={logo} alt="logo" /></i>
@@ -23,6 +26,50 @@ const Header = () => {
                 <a href="/login" className="btn-plat"><img src={login} alt="login" /></a>
             </div>
         </header>
+
+ 
+        <ul className="example-1">
+        <li className="icon-content">
+            <a
+            href="https://www.spotify.com/"
+            aria-label="Spotify"
+            data-social="spotify"
+            className="link"
+            >
+            <FaHome/>
+            </a>
+            <div className="tooltip">Inicio</div>
+        </li>
+        <li className="icon-content">
+            <a
+            href="https://dribbble.com/"
+            aria-label="Dribbble"
+            data-social="dribbble"
+            className="link"
+            >
+            
+              <FaList/>
+
+            </a>
+            <div className="tooltip">Regulamento</div>
+        </li>
+        <li className="icon-content">
+            <a
+            href="https://telegram.org/"
+            aria-label="Telegram"
+            data-social="telegram"
+            className="link"
+            >
+           <FaUser/>
+            </a>
+            <div className="tooltip">Acesse a plataforma</div>
+        </li>
+        </ul>
+
+        </section>
+
+
+        
     );
 }
 

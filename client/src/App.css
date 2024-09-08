@@ -21,3 +21,6 @@
   width: 100%;
   
 }
+.landing{
+  scroll-behavior: smooth;
+}

@@ -40,3 +40,19 @@
     background: linear-gradient(171deg, #8900C9 45.63%, #B1008A 93.04%);
     filter: blur(157.48793029785156px);
 }
+@media screen and (max-width: 1170px) {
+    .txt-steps{
+        margin-top: -50%;
+        text-align: center;
+        width: 70%;
+        margin-left: -14%;
+    }
+
+    .step img{
+        width: 400px;
+        margin-left: -28%;
+    }
+    .hero{
+        display: none;
+    }
+}

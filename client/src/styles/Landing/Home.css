@@ -116,3 +116,24 @@
     filter: blur(157.48793029785156px);
 }
 
+@media screen and (max-width: 1170px) {
+    .title{
+        margin-left: 0%;
+        font-size: 44px;
+        text-align: center;
+    }
+    .description{
+        text-align: center;
+        margin-left: 8%;
+        font-size: 19px;
+        width: 85%;
+    }
+    .banner{
+        display: none;
+    }
+    .btn-home{
+        margin-left: 20%;
+    }
+    
+
+}

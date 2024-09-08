@@ -61,3 +61,26 @@
     background: linear-gradient(171deg, #8900C9 45.63%, #B1008A 93.04%);
     filter: blur(157.48793029785156px);
 }
+
+@media screen and (max-width: 1170px) {
+    .card{
+        display: flex;
+        flex-direction: column;
+        gap: 70px;
+    }
+
+    .cod h2{
+        margin-left: -20%;
+        align-items: center;
+    }
+
+    .prot h2{
+        margin-left: -20%;
+        align-items: center; 
+    }
+
+    .jogo h2{
+        margin-left: -20%;
+        align-items: center;
+    }
+}
