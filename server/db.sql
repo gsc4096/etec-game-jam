@@ -1,102 +1,99 @@
--- Create a database
-CREATE DATABASE IF NOT EXISTS ECommerceDB;
-USE ECommerceDB;
+DROP DATABASE IF EXISTS gamejam;
 
--- Create Users table
-CREATE TABLE IF NOT EXISTS Users (
-    UserID INT AUTO_INCREMENT PRIMARY KEY,
-    Username VARCHAR(50) NOT NULL UNIQUE,
-    PasswordHash CHAR(64) NOT NULL,  -- Assuming SHA-256 hash
-    Email VARCHAR(100) NOT NULL UNIQUE,
-    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    LastLogin TIMESTAMP NULL
+CREATE DATABASE gamejam;
+USE gamejam;
+
+CREATE TABLE etec (
+    id_etec INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(100) NOT NULL
 );
 
--- Create Categories table
-CREATE TABLE IF NOT EXISTS Categories (
-    CategoryID INT AUTO_INCREMENT PRIMARY KEY,
-    CategoryName VARCHAR(100) NOT NULL UNIQUE
+CREATE TABLE concurso (
+    id_concurso INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    fk_etec_id INT NOT NULL,
+    data_inicio DATE NOT NULL,
+    data_fim DATE NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    qtd_max_equipes INT NOT NULL,
+    qtd_min_equipes INT NOT NULL,
+    FOREIGN KEY (fk_etec_id) REFERENCES etec(id_etec)
 );
 
--- Create Products table
-CREATE TABLE IF NOT EXISTS Products (
-    ProductID INT AUTO_INCREMENT PRIMARY KEY,
-    ProductName VARCHAR(255) NOT NULL,
-    Description TEXT,
-    Price DECIMAL(10, 2) NOT NULL,
-    StockQuantity INT DEFAULT 0,
-    CategoryID INT,
-    FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
+CREATE TABLE equipe_tipo (
+    id_tipo INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    tipo_nome VARCHAR(100) NOT NULL
 );
 
--- Create Orders table
-CREATE TABLE IF NOT EXISTS Orders (
-    OrderID INT AUTO_INCREMENT PRIMARY KEY,
-    UserID INT,
-    OrderDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    Status ENUM('Pending', 'Shipped', 'Delivered', 'Cancelled') DEFAULT 'Pending',
-    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+CREATE TABLE equipe (
+    id_equipe INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    nome_engine VARCHAR(100) NOT NULL,
+    fk_concurso_id INT NOT NULL,
+    fk_tipo_id INT NOT NULL,
+    FOREIGN KEY (fk_concurso_id) REFERENCES concurso(id_concurso),
+    FOREIGN KEY (fk_tipo_id) REFERENCES equipe_tipo(id_tipo)
 );
 
--- Create OrderDetails table
-CREATE TABLE IF NOT EXISTS OrderDetails (
-    OrderDetailID INT AUTO_INCREMENT PRIMARY KEY,
-    OrderID INT,
-    ProductID INT,
-    Quantity INT NOT NULL,
-    PriceAtOrder DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
-    FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
+CREATE TABLE usuario (
+    id_usuario INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    fk_equipe_id INT NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    usuario_rm VARCHAR(10) NOT NULL,
+    senha VARCHAR(30) NOT NULL,
+    etec VARCHAR(100) NOT NULL,
+    FOREIGN KEY (fk_equipe_id) REFERENCES equipe(id_equipe)
 );
 
--- Create Reviews table
-CREATE TABLE IF NOT EXISTS Reviews (
-    ReviewID INT AUTO_INCREMENT PRIMARY KEY,
-    UserID INT,
-    ProductID INT,
-    Rating TINYINT CHECK (Rating BETWEEN 1 AND 5),
-    Comment TEXT,
-    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (UserID) REFERENCES Users(UserID),
-    FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
+CREATE TABLE jogo (
+    id_jogo INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(200) NOT NULL,
+    nome_engine VARCHAR(100) NOT NULL
 );
 
--- Insert some initial data into Categories
-INSERT INTO Categories (CategoryName) VALUES ('Electronics'), ('Books'), ('Clothing');
+CREATE TABLE equipes_concorrentes (
+    fk_id_concorrentes INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    fk_lider_id INT NOT NULL,
+    fk_jogo_id INT NOT NULL,
+    FOREIGN KEY (fk_id_concorrentes) REFERENCES equipe(id_equipe),
+    FOREIGN KEY (fk_lider_id) REFERENCES usuario(id_usuario),
+    FOREIGN KEY (fk_jogo_id) REFERENCES jogo(id_jogo)
+);
 
--- Insert some initial data into Products
-INSERT INTO Products (ProductName, Description, Price, StockQuantity, CategoryID) VALUES 
-('Smartphone', 'Latest model with advanced features', 699.99, 50, 1),
-('Laptop', 'High-performance laptop for professionals', 1199.99, 30, 1),
-('Science Fiction Novel', 'Bestselling science fiction novel', 19.99, 100, 2),
-('Graphic T-Shirt', 'Stylish graphic tee', 15.99, 200, 3);
+INSERT INTO etec (nome) VALUES
+('ETEC São Paulo'),
+('ETEC Campinas'),
+('ETEC São José dos Campos');
 
--- Insert a sample user
-INSERT INTO Users (Username, PasswordHash, Email) VALUES 
-('john_doe', SHA2('password123', 256), 'john.doe@example.com');
+INSERT INTO concurso (fk_etec_id, data_inicio, data_fim, nome, qtd_max_equipes, qtd_min_equipes) VALUES
+(1, '2024-01-15', '2024-01-20', 'Concurso A', 10, 5),
+(2, '2024-02-10', '2024-02-15', 'Concurso B', 8, 4),
+(3, '2024-03-05', '2024-03-10', 'Concurso C', 12, 6);
 
--- Insert a sample order
-INSERT INTO Orders (UserID, Status) VALUES 
-((SELECT UserID FROM Users WHERE Username = 'john_doe'), 'Pending');
+INSERT INTO equipe_tipo (tipo_nome) VALUES
+('Desenvolvedora'),
+('Designer'),
+('Programadora');
 
--- Insert details for the sample order
-INSERT INTO OrderDetails (OrderID, ProductID, Quantity, PriceAtOrder) VALUES 
-((SELECT OrderID FROM Orders WHERE UserID = (SELECT UserID FROM Users WHERE Username = 'john_doe')), 
- (SELECT ProductID FROM Products WHERE ProductName = 'Smartphone'), 1, 699.99);
+INSERT INTO equipe (nome, nome_engine, fk_concurso_id, fk_tipo_id) VALUES
+('Equipe A', 'Unity', 1, 1),
+('Equipe B', 'Unreal Engine', 1, 2),
+('Equipe C', 'Godot', 2, 3),
+('Equipe D', 'Unity', 3, 1);
 
--- Insert a sample review
-INSERT INTO Reviews (UserID, ProductID, Rating, Comment) VALUES 
-((SELECT UserID FROM Users WHERE Username = 'john_doe'), 
- (SELECT ProductID FROM Products WHERE ProductName = 'Smartphone'), 5, 'Amazing phone with great features!');
+INSERT INTO usuario (nome, fk_equipe_id, email, telefone, usuario_rm, senha, etec) VALUES
+('Alice Silva', 1, 'alice.silva@example.com', '11999999999', 'RM001', 'senha123', 'ETEC São Paulo'),
+('Bob Santos', 1, 'bob.santos@example.com', '11988888888', 'RM002', 'senha123', 'ETEC São Paulo'),
+('Carol Oliveira', 2, 'carol.oliveira@example.com', '11977777777', 'RM003', 'senha123', 'ETEC Campinas'),
+('David Costa', 3, 'david.costa@example.com', '11966666666', 'RM004', 'senha123', 'ETEC São José dos Campos');
 
--- Query to fetch all products with their categories
-SELECT p.ProductName, p.Description, p.Price, c.CategoryName
-FROM Products p
-JOIN Categories c ON p.CategoryID = c.CategoryID;
+INSERT INTO jogo (nome, nome_engine) VALUES
+('Jogo A', 'Unity'),
+('Jogo B', 'Unreal Engine'),
+('Jogo C', 'Godot');
 
--- Query to fetch all orders for a specific user
-SELECT o.OrderID, o.OrderDate, o.Status, od.ProductID, p.ProductName, od.Quantity, od.PriceAtOrder
-FROM Orders o
-JOIN OrderDetails od ON o.OrderID = od.OrderID
-JOIN Products p ON od.ProductID = p.ProductID
-WHERE o.UserID = (SELECT UserID FROM Users WHERE Username = 'john_doe');
+INSERT INTO equipes_concorrentes (fk_lider_id, fk_jogo_id) VALUES
+(1, 1),
+(2, 2),
+(3, 3);
