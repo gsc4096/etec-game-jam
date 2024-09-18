@@ -31,7 +31,7 @@ const Header = () => {
         <ul className="example-1">
         <li className="icon-content">
             <a
-            href="https://www.spotify.com/"
+            href="/"
             aria-label="Spotify"
             data-social="spotify"
             className="link"
@@ -42,7 +42,7 @@ const Header = () => {
         </li>
         <li className="icon-content">
             <a
-            href="https://dribbble.com/"
+            href="/"
             aria-label="Dribbble"
             data-social="dribbble"
             className="link"
@@ -55,7 +55,7 @@ const Header = () => {
         </li>
         <li className="icon-content">
             <a
-            href="https://telegram.org/"
+            href="/"
             aria-label="Telegram"
             data-social="telegram"
             className="link"

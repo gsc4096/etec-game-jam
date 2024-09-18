@@ -108,3 +108,9 @@ ul {
         display: none;
     }
 }
+
+@media screen and (max-width: 1170px) {
+    .footer{
+        display: none;
+    }
+}

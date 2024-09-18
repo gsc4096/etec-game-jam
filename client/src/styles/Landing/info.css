@@ -47,6 +47,18 @@
     margin-top: 30px;
     margin-right: 155px;
 }
+@media screen and (max-width: 1370px) {
+    .txt-info{
+        margin-right: 100px;
+    }
+
+    .description-info{
+        width: 601px;
+        margin-right: 32.7%;
+        margin-top: -1%;
+    }
+
+}
 @media screen and (max-width: 1170px) {
     .txt-info{
         display: none;
