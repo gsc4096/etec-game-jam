@@ -1,10 +1,10 @@
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ProtectedRoute from './pages/ProtectedRoute.jsx';
 import { AuthProvider } from './context/AuthContext.js';
 import Landing from './pages/Landing.jsx';
+import Banco from './pages/Banco.jsx';
 import Home from './components/Home.jsx';
 import './App.css';
-
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route path="/banco" element={<Banco />} />
           </Routes>
         </div>
       </Router>

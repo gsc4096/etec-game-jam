@@ -1,6 +1,7 @@
+import GlobalStyle from "../styles/global.js";
 import styled from "styled-components";
-import Form from "./components/Form.js";
-import Grid from "./components/Grid";
+import Form from "../components/Form.js";
+import Grid from "../components/Grid.js";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,7 +19,7 @@ const Container = styled.div`
 
 const Title = styled.h2``;
 
-function App() {
+function Banco() {
   const [users, setUsers] = useState([]);
   const [onEdit, setOnEdit] = useState(null);
 
@@ -48,4 +49,4 @@ function App() {
   );
 }
 
-export default App;
+export default Banco;
